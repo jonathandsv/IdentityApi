@@ -13,6 +13,8 @@ namespace Infrastructure.Identity.Configuration
         {
             services.AddDbContext<UserDbContext>(options => 
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("IdentityApi")));
+                //options.UseSqlServer(@"Server=127.0.0.1,1440;Database=Master;User Id=SA;Password=Adm-1089;TrustServerCertificate=true",
+                //x => x.MigrationsAssembly("IdentityApi")));
 
             services.AddIdentity<ApplicationIdentityUser, IdentityRole<int>>(opt =>
                 {
